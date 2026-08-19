@@ -10,13 +10,51 @@ namespace ControlLicencias.Views;
 
 public partial class LoginWindow : Window
 {
+    private bool _verificacionCorrida;
+    private string? _tagActualizacion;
+
     public LoginWindow()
     {
         InitializeComponent();
         Opened += (_, _) => this.FindControl<TextBox>("TxtUsuario")?.Focus();
+        _ = VerificarActualizacionAsync();
     }
 
     private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
+
+    private async Task VerificarActualizacionAsync()
+    {
+        if (_verificacionCorrida) return;
+        _verificacionCorrida = true;
+        try
+        {
+            var tag = await UpdateService.HayActualizacionAsync();
+            if (string.IsNullOrEmpty(tag)) return;
+
+            _tagActualizacion = tag;
+            var panel = this.FindControl<Border>("PanelActualizacion");
+            var txt = this.FindControl<TextBlock>("TxtNuevaVersion");
+            if (panel != null) panel.IsVisible = true;
+            if (txt != null) txt.Text = $"Nueva versión disponible ({tag})";
+        }
+        catch { }
+    }
+
+    public async void OnActualizar_Click(object? sender, RoutedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(_tagActualizacion)) return;
+
+        var btn = this.FindControl<Button>("BtnActualizar");
+        if (btn != null) { btn.IsEnabled = false; btn.Content = "Descargando..."; }
+
+        var (exito, error) = await UpdateService.DescargarEInstalarAsync(_tagActualizacion);
+        if (!exito)
+        {
+            var err = this.FindControl<TextBlock>("LblError");
+            if (err != null) { err.Text = $"No se pudo descargar la actualización. {error}"; err.IsVisible = true; }
+            if (btn != null) { btn.IsEnabled = true; btn.Content = "Actualizar"; }
+        }
+    }
 
     public void OnClose_Click(object? sender, RoutedEventArgs e) => Close();
 

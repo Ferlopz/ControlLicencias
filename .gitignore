@@ -11,5 +11,8 @@ obj/
 Instalador/
 publish/
 
+# Config local con GITHUB_TOKEN (no versionar)
+configuracion.txt
+
 # Tema / ajustes locales
 *.local.json
