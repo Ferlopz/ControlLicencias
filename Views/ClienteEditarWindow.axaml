@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.ClienteEditarWindow"
+        Title="Cliente"
+        Width="600" Height="460"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        WindowDecorations="None"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent">
+    <Border Background="{DynamicResource Surface}"
+            CornerRadius="20"
+            BorderBrush="{DynamicResource Border}"
+            BorderThickness="1"
+            BoxShadow="0 24 60 0 #40000000">
+        <Grid>
+            <Button Classes="CloseBtn" Click="Cancelar_Click" ToolTip.Tip="Cerrar"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="14" ZIndex="10">
+                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="14" Height="14" Stretch="Uniform" />
+            </Button>
+
+            <Grid RowDefinitions="Auto,*,Auto" Margin="30,30,30,20">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12" Margin="0,0,0,14">
+                    <Border Width="40" Height="40" Background="{DynamicResource AccentSoft}" CornerRadius="11">
+                        <Path Data="{StaticResource IconClientes}" Fill="{DynamicResource PrimaryColor}" Width="20" Height="20" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Name="TxtTitulo" Text="Cliente" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*,*">
+                    <StackPanel Grid.Column="0" Spacing="2" Margin="0,0,14,0">
+                        <TextBlock Classes="FormLabel" Text="Nombre" />
+                        <TextBox Name="TxtNombre" Height="38" ToolTip.Tip="Nombre del cliente" />
+
+                        <TextBlock Classes="FormLabel" Text="Email" />
+                        <TextBox Name="TxtEmail" Height="38" />
+
+                        <TextBlock Classes="FormLabel" Text="Dirección" />
+                        <TextBox Name="TxtDireccion" Height="38" />
+
+                        <CheckBox Name="ChkActivo" Content="Cliente activo" Margin="0,16,0,0" ToolTip.Tip="Si está desactivado, no se listará como activo" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Spacing="2" Margin="14,0,0,0">
+                        <TextBlock Classes="FormLabel" Text="RUC" />
+                        <TextBox Name="TxtRuc" Height="38" ToolTip.Tip="RUC del cliente" />
+
+                        <TextBlock Classes="FormLabel" Text="Teléfono" />
+                        <TextBox Name="TxtTelefono" Height="38" />
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,16,0,0">
+                    <TextBlock Name="LblEstado" VerticalAlignment="Center" Foreground="{DynamicResource Danger}" Margin="0,0,12,0" />
+                    <Button Classes="GhostBtn" Content="Cancelar" Click="Cancelar_Click" />
+                    <Button Classes="PrimaryBtn" Click="Guardar_Click" ToolTip.Tip="Guardar cliente">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <Path Data="{StaticResource IconGuardar}" Fill="White" Width="16" Height="16" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Guardar" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

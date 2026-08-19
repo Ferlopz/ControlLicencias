@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.ConfirmDialog"
+        Title="Confirmar"
+        Width="400" Height="250"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        WindowDecorations="None"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent">
+    <Border Background="{DynamicResource Surface}"
+            CornerRadius="20"
+            BorderBrush="{DynamicResource Border}"
+            BorderThickness="1"
+            BoxShadow="0 24 60 0 #40000000">
+        <Grid>
+            <Button Classes="CloseBtn" Click="Cancelar_Click" ToolTip.Tip="Cerrar"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="14" ZIndex="10">
+                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="14" Height="14" Stretch="Uniform" />
+            </Button>
+
+            <Grid RowDefinitions="*,Auto" Margin="28,24">
+                <StackPanel Grid.Row="0" VerticalAlignment="Center" Spacing="12">
+                    <Border Width="60" Height="60" CornerRadius="18" Background="{DynamicResource DangerSoft}" HorizontalAlignment="Center">
+                        <Path Data="{StaticResource IconError}"
+                              Fill="{DynamicResource Danger}" Width="32" Height="32" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Name="TxtTitulo" Text="Confirmar acción"
+                               HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"
+                               Foreground="{DynamicResource MainText}" TextWrapping="Wrap" TextAlignment="Center" />
+                    <TextBlock Name="TxtMensaje" Text="¿Estás seguro de realizar esta operación?"
+                               HorizontalAlignment="Center" FontSize="14"
+                               Foreground="{DynamicResource SubText}" TextWrapping="Wrap" TextAlignment="Center" />
+                </StackPanel>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" Margin="0,18,0,0">
+                    <Button Grid.Column="0" x:Name="BtnCancelar" Classes="GhostBtn"
+                            Content="Cancelar" HorizontalAlignment="Stretch" Margin="0,0,7,0" Click="Cancelar_Click" />
+                    <Button Grid.Column="1" x:Name="BtnAccion" Classes="DangerBtn"
+                            Content="Confirmar" HorizontalAlignment="Stretch" Margin="7,0,0,0" Click="Accion_Click" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

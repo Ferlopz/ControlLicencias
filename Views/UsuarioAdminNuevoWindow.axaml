@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.UsuarioAdminNuevoWindow"
+        Title="Nuevo usuario"
+        Width="440" Height="460"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        WindowDecorations="None"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent">
+    <Border Background="{DynamicResource Surface}"
+            CornerRadius="20"
+            BorderBrush="{DynamicResource Border}"
+            BorderThickness="1"
+            BoxShadow="0 24 60 0 #40000000">
+        <Grid>
+            <Button Classes="CloseBtn" Click="Cancelar_Click" ToolTip.Tip="Cerrar"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="14" ZIndex="10">
+                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="14" Height="14" Stretch="Uniform" />
+            </Button>
+
+            <StackPanel Margin="30,36,30,24" Spacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,0,0,6">
+                    <Border Width="40" Height="40" Background="{DynamicResource AccentSoft}" CornerRadius="11">
+                        <Path Data="{StaticResource IconUsuarios}" Fill="{DynamicResource PrimaryColor}" Width="20" Height="20" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Text="Nuevo usuario" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <TextBlock Classes="FormLabel" Text="Usuario" />
+                <TextBox Name="TxtUserName" Height="38" ToolTip.Tip="Nombre de usuario para iniciar sesión" />
+
+                <TextBlock Classes="FormLabel" Text="Nombre completo" />
+                <TextBox Name="TxtNombre" Height="38" />
+
+                <TextBlock Classes="FormLabel" Text="Contraseña" />
+                <TextBox Name="TxtPassword" PasswordChar="●" Height="38" />
+
+                <TextBlock Name="LblError" IsVisible="False" Foreground="{DynamicResource Danger}" TextWrapping="Wrap" />
+
+                <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,14,0,0">
+                    <Button Classes="GhostBtn" Content="Cancelar" Click="Cancelar_Click" />
+                    <Button Classes="PrimaryBtn" Click="Crear_Click" ToolTip.Tip="Crear usuario">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <Path Data="{StaticResource IconNuevo}" Fill="White" Width="15" Height="15" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Crear" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

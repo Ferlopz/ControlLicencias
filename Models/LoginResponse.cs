@@ -1,0 +1,8 @@
+namespace ControlLicencias.Models;
+
+public class LoginResponse
+{
+    public string Token { get; set; } = "";
+    public string Nombre { get; set; } = "";
+    public string UserName { get; set; } = "";
+}

@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.LoginWindow"
+        Title="Control de Licencias - Iniciar Sesión"
+        Width="420" Height="600"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+        WindowDecorations="None"
+        Background="{DynamicResource Background}">
+    <Grid>
+        <Button Classes="CloseBtn" Click="OnClose_Click" ToolTip.Tip="Cerrar"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Margin="16" ZIndex="10">
+            <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                  Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="14" Height="14" Stretch="Uniform" />
+        </Button>
+
+        <Border Background="{DynamicResource Surface}"
+                BorderBrush="{DynamicResource Border}"
+                BorderThickness="1"
+                CornerRadius="20"
+                BoxShadow="0 24 60 0 #33000000"
+                Padding="40,44"
+                MaxWidth="380"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+            <StackPanel Spacing="14">
+                <Border Width="64" Height="64" CornerRadius="18" Background="{DynamicResource PrimaryColor}"
+                        HorizontalAlignment="Center" Margin="0,0,0,6">
+                    <Path Data="{StaticResource IconLlave}" Fill="White" Width="32" Height="32" Stretch="Uniform"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+
+                <TextBlock Text="Control de Licencias" FontSize="22" FontWeight="Bold"
+                           HorizontalAlignment="Center" Foreground="{DynamicResource MainText}" />
+                <TextBlock Text="Panel de administración de licencias" FontSize="13"
+                           Foreground="{DynamicResource SubText}" HorizontalAlignment="Center"
+                           TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,12" />
+
+                <TextBox Name="TxtUsuario" PlaceholderText="Usuario" Height="44" ToolTip.Tip="Nombre de usuario" KeyDown="OnKeyDown">
+                    <TextBox.InnerLeftContent>
+                        <Path Data="{StaticResource IconUsuarios}" Fill="{DynamicResource SubText}" Width="16" Height="16" Margin="4,0,8,0" />
+                    </TextBox.InnerLeftContent>
+                </TextBox>
+
+                <TextBox Name="TxtPassword" PlaceholderText="Contraseña" PasswordChar="●" Height="44" ToolTip.Tip="Contraseña" KeyDown="OnKeyDown">
+                    <TextBox.InnerLeftContent>
+                        <Path Data="{StaticResource IconLlave}" Fill="{DynamicResource SubText}" Width="16" Height="16" Margin="4,0,8,0" />
+                    </TextBox.InnerLeftContent>
+                </TextBox>
+
+                <TextBlock Name="LblError" IsVisible="False" Foreground="{DynamicResource Danger}"
+                           TextWrapping="Wrap" TextAlignment="Center" />
+
+                <Button Name="BtnLogin" Classes="PrimaryBtn" Height="46" HorizontalAlignment="Stretch" Click="Login_Click" ToolTip.Tip="Ingresar al sistema">
+                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                        <Path Data="{StaticResource IconLlave}" Fill="White" Width="17" Height="17" Stretch="Uniform" VerticalAlignment="Center" />
+                        <TextBlock Text="Ingresar" VerticalAlignment="Center" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Button>
+
+                <ProgressBar Name="LoadingBar" IsIndeterminate="True" IsVisible="False" Height="3" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

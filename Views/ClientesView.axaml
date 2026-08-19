@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ControlLicencias.Views.ClientesView">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="24">
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,6">
+            <StackPanel Orientation="Horizontal" Spacing="14">
+                <Border Width="44" Height="44" Background="{DynamicResource AccentSoft}" CornerRadius="12">
+                    <Path Data="{StaticResource IconClientes}" Fill="{DynamicResource PrimaryColor}" Width="22" Height="22" Stretch="Uniform"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Clientes" FontSize="22" FontWeight="Bold" />
+                    <TextBlock Text="Busca y administra los clientes del sistema" Foreground="{DynamicResource SubText}" FontSize="13" />
+                </StackPanel>
+            </StackPanel>
+            <Button Grid.Column="1" Classes="PrimaryBtn" Click="Nuevo_Click" ToolTip.Tip="Crear un nuevo cliente" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                    <Path Data="{StaticResource IconNuevo}" Fill="White" Width="16" Height="16" Stretch="Uniform" VerticalAlignment="Center" />
+                    <TextBlock Text="Nuevo cliente" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <TextBox Grid.Row="1" Name="TxtBusqueda" PlaceholderText="Buscar por RUC o nombre" TextChanged="TxtBusqueda_TextChanged"
+                 Width="360" HorizontalAlignment="Left" Margin="0,16,0,16" ToolTip.Tip="Escribe y busca automáticamente"
+                 VerticalContentAlignment="Center">
+            <TextBox.InnerLeftContent>
+                <Path Data="{StaticResource IconBuscar}" Fill="{DynamicResource SubText}" Width="16" Height="16" Margin="4,0,8,0" />
+            </TextBox.InnerLeftContent>
+        </TextBox>
+
+        <Grid Grid.Row="2">
+            <Border Classes="Card" Padding="0" ClipToBounds="True">
+                <Grid>
+                    <DataGrid Name="LstClientes"
+                              AutoGenerateColumns="False"
+                              CanUserSortColumns="True"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              DoubleTapped="Lista_DoubleTapped"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="2*" />
+                            <DataGridTextColumn Header="RUC" Binding="{Binding RUC}" Width="*" />
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+                            <DataGridTemplateColumn Header="Estado" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Background="{Binding EstadoBg}" CornerRadius="999" Padding="10,4" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                                <Ellipse Width="7" Height="7" Fill="{Binding EstadoColor}" VerticalAlignment="Center" />
+                                                <TextBlock Text="{Binding EstadoTexto}" Foreground="{Binding EstadoColor}" FontSize="12" FontWeight="SemiBold" />
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="" Width="110">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Button Classes="IconBtn" Click="VerLicencias_Click" ToolTip.Tip="Ver licencias del cliente">
+                                                <Path Data="{StaticResource IconLicencia}" Fill="{DynamicResource PrimaryColor}" Width="16" Height="16" Stretch="Uniform" />
+                                            </Button>
+                                            <Button Classes="IconBtn" Click="EditarItem_Click" ToolTip.Tip="Editar cliente">
+                                                <Path Data="{StaticResource IconEditar}" Fill="{DynamicResource PrimaryColor}" Width="16" Height="16" Stretch="Uniform" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Name="PanelVacio" IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10" Margin="0,40">
+                        <Border Width="56" Height="56" Background="{DynamicResource AccentSoft}" CornerRadius="16">
+                            <Path Data="{StaticResource IconClientes}" Fill="{DynamicResource SubText}" Width="28" Height="28" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <TextBlock Text="No hay clientes registrados" Foreground="{DynamicResource SubText}" HorizontalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Name="PanelLoading" IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10" Margin="0,40">
+                        <ProgressBar IsIndeterminate="True" Width="140" />
+                        <TextBlock Text="Cargando..." Foreground="{DynamicResource SubText}" HorizontalAlignment="Center" FontSize="12" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <TextBlock Grid.Row="3" Name="LblEstado" Opacity="0.7" Margin="2,10,0,0" />
+    </Grid>
+</UserControl>

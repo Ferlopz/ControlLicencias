@@ -1,0 +1,318 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ControlLicencias.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="Background">#F4F6FB</SolidColorBrush>
+                    <SolidColorBrush x:Key="Surface">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="SecondaryColor">#F4F6FB</SolidColorBrush>
+                    <SolidColorBrush x:Key="SidebarBackground">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="CardBackground">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="InputBackground">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="MainText">#0F172A</SolidColorBrush>
+                    <SolidColorBrush x:Key="SubText">#64748B</SolidColorBrush>
+                    <SolidColorBrush x:Key="Border">#E6EAF0</SolidColorBrush>
+                    <SolidColorBrush x:Key="Divider">#EEF1F6</SolidColorBrush>
+                    <SolidColorBrush x:Key="HoverBackground">#140F172A</SolidColorBrush>
+                    <SolidColorBrush x:Key="RowHover">#F1F5F9</SolidColorBrush>
+                    <SolidColorBrush x:Key="AccentSoft">#EFF4FF</SolidColorBrush>
+                    <SolidColorBrush x:Key="OnAccent">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColor">#2563EB</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColorHover">#1D4ED8</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColorPressed">#1E40AF</SolidColorBrush>
+                    <Color x:Key="SystemAccentColor">#2563EB</Color>
+                    <Color x:Key="SystemAccentColorLight1">#60A5FA</Color>
+                    <Color x:Key="SystemAccentColorLight2">#93C5FD</Color>
+                    <Color x:Key="SystemAccentColorLight3">#BFDBFE</Color>
+                    <Color x:Key="SystemAccentColorDark1">#1D4ED8</Color>
+                    <Color x:Key="SystemAccentColorDark2">#1E40AF</Color>
+                    <Color x:Key="SystemAccentColorDark3">#172554</Color>
+                    <SolidColorBrush x:Key="Success">#16A34A</SolidColorBrush>
+                    <SolidColorBrush x:Key="Danger">#DC2626</SolidColorBrush>
+                    <SolidColorBrush x:Key="Warning">#D97706</SolidColorBrush>
+                    <SolidColorBrush x:Key="SuccessSoft">#1A16A34A</SolidColorBrush>
+                    <SolidColorBrush x:Key="DangerSoft">#1ADC2626</SolidColorBrush>
+                    <SolidColorBrush x:Key="WarningSoft">#1AD97706</SolidColorBrush>
+                    <SolidColorBrush x:Key="InfoSoft">#1A2563EB</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="Background">#0B0F17</SolidColorBrush>
+                    <SolidColorBrush x:Key="Surface">#141B28</SolidColorBrush>
+                    <SolidColorBrush x:Key="SecondaryColor">#0B0F17</SolidColorBrush>
+                    <SolidColorBrush x:Key="SidebarBackground">#0E1521</SolidColorBrush>
+                    <SolidColorBrush x:Key="CardBackground">#141B28</SolidColorBrush>
+                    <SolidColorBrush x:Key="InputBackground">#0E1521</SolidColorBrush>
+                    <SolidColorBrush x:Key="MainText">#E6EAF2</SolidColorBrush>
+                    <SolidColorBrush x:Key="SubText">#8B95A7</SolidColorBrush>
+                    <SolidColorBrush x:Key="Border">#242E3E</SolidColorBrush>
+                    <SolidColorBrush x:Key="Divider">#1C2434</SolidColorBrush>
+                    <SolidColorBrush x:Key="HoverBackground">#14FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="RowHover">#1A2332</SolidColorBrush>
+                    <SolidColorBrush x:Key="AccentSoft">#1E2A44</SolidColorBrush>
+                    <SolidColorBrush x:Key="OnAccent">#0B0F17</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColor">#60A5FA</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColorHover">#3B82F6</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryColorPressed">#2563EB</SolidColorBrush>
+                    <Color x:Key="SystemAccentColor">#60A5FA</Color>
+                    <Color x:Key="SystemAccentColorLight1">#93C5FD</Color>
+                    <Color x:Key="SystemAccentColorLight2">#BFDBFE</Color>
+                    <Color x:Key="SystemAccentColorLight3">#DBEAFE</Color>
+                    <Color x:Key="SystemAccentColorDark1">#3B82F6</Color>
+                    <Color x:Key="SystemAccentColorDark2">#2563EB</Color>
+                    <Color x:Key="SystemAccentColorDark3">#1E3A8A</Color>
+                    <SolidColorBrush x:Key="Success">#34D399</SolidColorBrush>
+                    <SolidColorBrush x:Key="Danger">#F87171</SolidColorBrush>
+                    <SolidColorBrush x:Key="Warning">#FBBF24</SolidColorBrush>
+                    <SolidColorBrush x:Key="SuccessSoft">#1A34D399</SolidColorBrush>
+                    <SolidColorBrush x:Key="DangerSoft">#1AF87171</SolidColorBrush>
+                    <SolidColorBrush x:Key="WarningSoft">#1AFBBF24</SolidColorBrush>
+                    <SolidColorBrush x:Key="InfoSoft">#1A60A5FA</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <!-- Iconos (Material Design Icons, 24x24) -->
+            <StreamGeometry x:Key="IconClientes">M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15 17,16.5V19H23V16.5C23,14.17 18.33,13 16,13M8,13C5.67,13 1,14.17 1,16.5V19H15V16.5C15,14.17 10.33,13 8,13M8,11A3,3 0 0,0 11,8A3,3 0 0,0 8,5A3,3 0 0,0 5,8A3,3 0 0,0 8,11M16,11A3,3 0 0,0 19,8A3,3 0 0,0 16,5A3,3 0 0,0 13,8A3,3 0 0,0 16,11Z</StreamGeometry>
+            <StreamGeometry x:Key="IconConfig">M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z</StreamGeometry>
+            <StreamGeometry x:Key="IconUsuarios">M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z</StreamGeometry>
+            <StreamGeometry x:Key="IconSalir">M17,7L15.59,8.41L18.17,11H8V13H18.17L15.59,15.58L17,17L22,12L17,7M4,5H12V3H4C2.9,3 2,3.9 2,5V19C2,20.1 2.9,21 4,21H12V19H4V5Z</StreamGeometry>
+            <StreamGeometry x:Key="IconBuscar">M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z</StreamGeometry>
+            <StreamGeometry x:Key="IconNuevo">M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z</StreamGeometry>
+            <StreamGeometry x:Key="IconEditar">M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87L20.71,7.04M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25Z</StreamGeometry>
+            <StreamGeometry x:Key="IconQuitar">M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z</StreamGeometry>
+            <StreamGeometry x:Key="IconGuardar">M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z</StreamGeometry>
+            <StreamGeometry x:Key="IconPower">M13,3H11V13H13V3M17.83,5.17L16.41,6.59C17.99,7.86 19,9.81 19,12A7,7 0 0,1 12,19C8.14,19 5,15.86 5,12C5,9.81 6.01,7.86 7.58,6.58L6.17,5.17C4.23,6.82 3,9.26 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,9.26 19.77,6.82 17.83,5.17Z</StreamGeometry>
+            <StreamGeometry x:Key="IconLlave">M7,14A2,2 0 0,1 5,12A2,2 0 0,1 7,10A2,2 0 0,1 9,12A2,2 0 0,1 7,14M12.65,10C11.83,7.67 9.61,6 7,6A6,6 0 0,0 1,12A6,6 0 0,0 7,18C9.61,18 11.83,16.33 12.65,14H17V18H21V14H23V10H12.65Z</StreamGeometry>
+            <StreamGeometry x:Key="IconLicencia">M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z</StreamGeometry>
+            <StreamGeometry x:Key="IconCheck">M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z</StreamGeometry>
+            <StreamGeometry x:Key="IconError">M13,14H11V9H13M13,18H11V16H13M1,21H23L12,2L1,21Z</StreamGeometry>
+            <StreamGeometry x:Key="IconInfo">M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M13,17H11V11H13V17M13,9H11V7H13V9Z</StreamGeometry>
+            <StreamGeometry x:Key="IconSun">M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.94,8.5C5.5,9.24 5.25,10 5.11,10.79L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.24 6.91,16.86 7.5,17.37L3.36,17M20.65,7L18.88,10.79C18.74,10 18.47,9.23 18.05,8.5C17.63,7.78 17.1,7.15 16.5,6.64L20.65,7M20.64,17L16.5,17.36C17.09,16.85 17.62,16.22 18.04,15.5C18.46,14.77 18.73,14 18.87,13.21L20.64,17M12,22L9.59,18.56C10.33,18.83 11.14,19 12,19C12.82,19 13.63,18.83 14.37,18.56L12,22Z</StreamGeometry>
+            <StreamGeometry x:Key="IconMoon">M12,3C10.92,3 9.87,3.2 8.89,3.59C10.16,5.27 11,7.53 11,10C11,12.47 10.16,14.73 8.89,16.41C9.87,16.8 10.92,17 12,17A7,7 0 0,0 19,10A7,7 0 0,0 12,3Z</StreamGeometry>
+            <StreamGeometry x:Key="IconProducto">M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z</StreamGeometry>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+
+        <!-- Botón primario: gradiente azul + sombra + hover lift -->
+        <Style Selector="Button.PrimaryBtn">
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Color="#3B82F6" Offset="0" />
+                    <GradientStop Color="#2563EB" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="16,10" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Button.PrimaryBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Color="#2563EB" Offset="0" />
+                    <GradientStop Color="#1D4ED8" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.PrimaryBtn:pressed /template/ ContentPresenter">
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Color="#1D4ED8" Offset="0" />
+                    <GradientStop Color="#1E40AF" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.PrimaryBtn:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <!-- Botón de navegación (sidebar) -->
+        <Style Selector="Button.NavBtn">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource SubText}" />
+            <Setter Property="Padding" Value="14,11" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.15" />
+                    <BrushTransition Property="Foreground" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Button.NavBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HoverBackground}" />
+        </Style>
+        <Style Selector="Button.NavBtn:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource MainText}" />
+        </Style>
+        <Style Selector="Button.NavBtn:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HoverBackground}" />
+        </Style>
+        <Style Selector="Button.NavBtn.NavActive /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="Button.NavBtn.NavActive">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style Selector="Button.NavBtn.NavActive:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimaryColorHover}" />
+        </Style>
+
+        <!-- Botón fantasma / secundario -->
+        <Style Selector="Button.GhostBtn">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource MainText}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="14,9" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <Style Selector="Button.GhostBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HoverBackground}" />
+        </Style>
+
+        <!-- Botón de peligro -->
+        <Style Selector="Button.DangerBtn">
+            <Setter Property="Background" Value="{DynamicResource Danger}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="16,9" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="Button.DangerBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Opacity" Value="0.85" />
+        </Style>
+
+        <!-- Botón de ícono -->
+        <Style Selector="Button.IconBtn">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="7" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Button.IconBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HoverBackground}" />
+        </Style>
+
+        <!-- Botón cerrar (X) de ventanas/modales -->
+        <Style Selector="Button.CloseBtn">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource SubText}" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.12" />
+                    <BrushTransition Property="Foreground" Duration="0:0:0.12" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Button.CloseBtn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource Danger}" />
+        </Style>
+        <Style Selector="Button.CloseBtn:pointerover">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <!-- TextBox -->
+        <Style Selector="TextBox">
+            <Setter Property="Padding" Value="12,10" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="{DynamicResource InputBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <!-- CheckBox -->
+        <Style Selector="CheckBox">
+            <Setter Property="Foreground" Value="{DynamicResource MainText}" />
+        </Style>
+
+        <!-- TabControl -->
+        <Style Selector="TabControl">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="TabItem">
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <!-- Tarjeta -->
+        <Style Selector="Border.Card">
+            <Setter Property="Background" Value="{DynamicResource CardBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Padding" Value="16" />
+        </Style>
+
+        <!-- DataGrid moderno -->
+        <Style Selector="DataGrid">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="GridLinesVisibility" Value="Horizontal" />
+            <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource Divider}" />
+            <Setter Property="RowBackground" Value="Transparent" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource SubText}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Padding" Value="14,10" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Divider}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+        <Style Selector="DataGridRow">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="MinHeight" Value="48" />
+        </Style>
+        <Style Selector="DataGridRow:pointerover DataGridCell">
+            <Setter Property="Background" Value="{DynamicResource RowHover}" />
+        </Style>
+        <Style Selector="DataGridRow:selected DataGridCell">
+            <Setter Property="Background" Value="{DynamicResource AccentSoft}" />
+        </Style>
+        <Style Selector="DataGridCell">
+            <Setter Property="Padding" Value="14,0" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <!-- ScrollBar -->
+        <Style Selector="ScrollBar">
+            <Setter Property="Width" Value="10" />
+        </Style>
+
+        <!-- TextBlock con marca de subtítulo -->
+        <Style Selector="TextBlock.Subtle">
+            <Setter Property="Foreground" Value="{DynamicResource SubText}" />
+        </Style>
+
+        <!-- Etiqueta de formulario -->
+        <Style Selector="TextBlock.FormLabel">
+            <Setter Property="Foreground" Value="{DynamicResource SubText}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,6,0,3" />
+        </Style>
+    </Application.Styles>
+</Application>

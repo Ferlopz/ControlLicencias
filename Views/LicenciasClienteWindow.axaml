@@ -1,0 +1,106 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.LicenciasClienteWindow"
+        Title="Licencias"
+        Width="820" Height="540"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        WindowDecorations="None"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent">
+    <Border Background="{DynamicResource Surface}"
+            CornerRadius="20"
+            BorderBrush="{DynamicResource Border}"
+            BorderThickness="1"
+            BoxShadow="0 24 60 0 #40000000">
+        <Grid>
+            <Button Classes="CloseBtn" Click="Cancelar_Click" ToolTip.Tip="Cerrar"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="14" ZIndex="10">
+                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                      Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="14" Height="14" Stretch="Uniform" />
+            </Button>
+
+            <Grid RowDefinitions="Auto,*,Auto" Margin="30,30,30,20">
+                <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,14">
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <Border Width="40" Height="40" Background="{DynamicResource AccentSoft}" CornerRadius="11">
+                            <Path Data="{StaticResource IconLicencia}" Fill="{DynamicResource PrimaryColor}" Width="20" Height="20" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Name="LblTitulo" Text="Licencias del cliente" FontSize="17" FontWeight="Bold" />
+                            <TextBlock Text="Una licencia por producto" FontSize="12" Foreground="{DynamicResource SubText}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Grid.Column="1" Classes="PrimaryBtn" Click="Nueva_Click" ToolTip.Tip="Crear una nueva licencia" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <Path Data="{StaticResource IconNuevo}" Fill="White" Width="15" Height="15" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Nueva licencia" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Border Classes="Card" Padding="0" ClipToBounds="True">
+                        <Grid>
+                            <DataGrid Name="LstLicencias"
+                                      AutoGenerateColumns="False"
+                                      CanUserSortColumns="True"
+                                      IsReadOnly="True"
+                                      SelectionMode="Single"
+                                      HeadersVisibility="Column">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Producto" Binding="{Binding ProductoNombre}" Width="*" />
+                                    <DataGridTextColumn Header="PCs" Binding="{Binding CantidadPCs}" Width="80" />
+                                    <DataGridTextColumn Header="Usuarios" Binding="{Binding CantidadUsuarios}" Width="90" />
+                                    <DataGridTextColumn Header="Expiración" Binding="{Binding FechaExpiracion, StringFormat={}{0:dd/MM/yyyy}}" Width="120" />
+                                    <DataGridTemplateColumn Header="Estado" Width="130">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border Background="{Binding EstadoLicenciaBg}" CornerRadius="999" Padding="10,4" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                                        <Ellipse Width="7" Height="7" Fill="{Binding EstadoLicenciaColor}" VerticalAlignment="Center" />
+                                                        <TextBlock Text="{Binding EstadoLicencia}" Foreground="{Binding EstadoLicenciaColor}" FontSize="12" FontWeight="SemiBold" />
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="" Width="120">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Button Classes="IconBtn" Click="EditarItem_Click" ToolTip.Tip="Editar licencia">
+                                                        <Path Data="{StaticResource IconEditar}" Fill="{DynamicResource PrimaryColor}" Width="16" Height="16" Stretch="Uniform" />
+                                                    </Button>
+                                                    <Button Classes="IconBtn" Click="ToggleItem_Click" ToolTip.Tip="Activar / desactivar licencia">
+                                                        <Path Data="{StaticResource IconPower}" Fill="{DynamicResource MainText}" Width="16" Height="16" Stretch="Uniform" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <StackPanel Name="PanelVacio" IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10" Margin="0,40">
+                                <Border Width="56" Height="56" Background="{DynamicResource AccentSoft}" CornerRadius="16">
+                                    <Path Data="{StaticResource IconLicencia}" Fill="{DynamicResource SubText}" Width="28" Height="28" Stretch="Uniform"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <TextBlock Text="Este cliente no tiene licencias" Foreground="{DynamicResource SubText}" HorizontalAlignment="Center" />
+                            </StackPanel>
+
+                            <StackPanel Name="PanelLoading" IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10" Margin="0,40">
+                                <ProgressBar IsIndeterminate="True" Width="140" />
+                                <TextBlock Text="Cargando..." Foreground="{DynamicResource SubText}" HorizontalAlignment="Center" FontSize="12" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <TextBlock Grid.Row="2" Name="LblEstado" Opacity="0.7" Margin="2,10,0,0" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

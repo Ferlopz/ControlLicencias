@@ -1,0 +1,96 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ControlLicencias.Views.MainWindow"
+        Title="Control de Licencias"
+        Width="1240" Height="760"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Grid ColumnDefinitions="264,*">
+        <Border Grid.Column="0" Background="{DynamicResource SidebarBackground}" BorderBrush="{DynamicResource Border}" BorderThickness="0,0,1,0">
+            <DockPanel Margin="16">
+                <StackPanel DockPanel.Dock="Top" Spacing="6">
+                    <StackPanel Orientation="Horizontal" Spacing="12" Margin="6,6,6,24">
+                        <Border Width="42" Height="42" Background="{DynamicResource PrimaryColor}" CornerRadius="12">
+                            <Path Data="{StaticResource IconLlave}" Fill="White" Width="22" Height="22" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Control de Licencias" FontWeight="Bold" FontSize="15" />
+                            <TextBlock Text="Panel de administración" Foreground="{DynamicResource SubText}" FontSize="11" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Text="MENÚ" FontSize="11" FontWeight="Bold" Foreground="{DynamicResource SubText}" Margin="12,0,0,6" />
+
+                    <Button Name="BtnNavClientes" Classes="NavBtn" Click="Nav_Click" Tag="clientes" ToolTip.Tip="Lista de clientes">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Data="{StaticResource IconClientes}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Clientes" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnNavProductos" Classes="NavBtn" Click="Nav_Click" Tag="productos" ToolTip.Tip="Productos / sistemas">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Data="{StaticResource IconProducto}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Productos" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnNavConfig" Classes="NavBtn" Click="Nav_Click" Tag="config" ToolTip.Tip="Configuración de Telegram">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Data="{StaticResource IconConfig}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Configuración" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnNavUsuarios" Classes="NavBtn" Click="Nav_Click" Tag="usuarios" ToolTip.Tip="Usuarios del sistema">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Data="{StaticResource IconUsuarios}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Usuarios" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Bottom" Spacing="8">
+                    <Border Height="1" Background="{DynamicResource Divider}" Margin="0,0,0,10" />
+                    <Button Name="BtnTheme" Classes="NavBtn" Click="Theme_Click" ToolTip.Tip="Cambiar tema claro/oscuro">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Name="IconMoon" Data="{StaticResource IconMoon}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <Path Name="IconSun" Data="{StaticResource IconSun}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" IsVisible="False" />
+                            <TextBlock Name="LblTheme" Text="Tema claro" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Classes="NavBtn" Click="Salir_Click" ToolTip.Tip="Cerrar sesión">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Path Data="{StaticResource IconSalir}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="18" Height="18" Stretch="Uniform" VerticalAlignment="Center" />
+                            <TextBlock Text="Salir" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Border Classes="Card" Padding="12" Margin="0,6,0,2">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Border Width="38" Height="38" CornerRadius="19" Background="{DynamicResource PrimaryColor}">
+                                <TextBlock Name="LblInicial" Text="?" Foreground="White" FontWeight="Bold" FontSize="16"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Name="LblNombreUsuario" FontWeight="SemiBold" FontSize="13" TextTrimming="CharacterEllipsis" />
+                                <TextBlock Name="LblUsuario" FontSize="11" Foreground="{DynamicResource SubText}" TextTrimming="CharacterEllipsis" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Border Background="{DynamicResource SecondaryColor}">
+                <ContentControl Name="Contenido">
+                    <ContentControl.Transitions>
+                        <Transitions>
+                            <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="CubicEaseInOut" />
+                        </Transitions>
+                    </ContentControl.Transitions>
+                </ContentControl>
+            </Border>
+            <Panel Name="Overlay" IsHitTestVisible="False" ZIndex="100" />
+        </Grid>
+    </Grid>
+</Window>
